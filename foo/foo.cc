@@ -2,7 +2,7 @@
 
 namespace foo {
 
-std::string TakeString(absl::string_view str) {
+std::string Foo::TakeString(absl::string_view str) {
   return std::string(str);
 }
 
