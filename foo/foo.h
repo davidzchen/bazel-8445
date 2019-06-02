@@ -3,16 +3,21 @@
 
 #include <string>
 
+#include "foo/foo.pb.h"
 #include "absl/strings/string_view.h"
 
 namespace foo {
 
 class Foo {
  public:
-  Foo();
+  static Foo FromProto(const FooMessage& proto);
   ~Foo();
 
-  static std::string TakeString(absl::string_view str);
+  absl::string_view name() const;
+
+ private:
+  Foo(const FooMessage& proto);
+  FooMessage proto_;
 };
 
 }  // namespace foo

@@ -2,8 +2,16 @@
 
 namespace foo {
 
-std::string Foo::TakeString(absl::string_view str) {
-  return std::string(str);
+Foo::Foo(const FooMessage& proto)
+    : proto_(proto) {}
+
+Foo Foo::FromProto(const FooMessage& proto) {
+  // DUMMY: Do some validation.
+  return Foo(proto);
+}
+
+absl::string_view Foo::name() const {
+  return proto_.name();
 }
 
 }  // namespace foo
